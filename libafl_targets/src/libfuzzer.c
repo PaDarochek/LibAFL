@@ -22,8 +22,9 @@ EXT_FUNC_IMPL(LLVMFuzzerTestOneInput, int, (const uint8_t *Data, size_t Size),
 }
 
 EXT_FUNC(libafl_main, void, (void), false);
-extern int LLVMFuzzerRunDriver(int *argc, char ***argv,
-                               int (*UserCb)(const uint8_t *Data, size_t Size));
+EXT_FUNC(LLVMFuzzerRunDriver, int, (int *argc, char ***argv, int (*UserCb)(const uint8_t *Data, size_t Size)), false);
+// extern int LLVMFuzzerRunDriver(int *argc, char ***argv,
+//                                int (*UserCb)(const uint8_t *Data, size_t Size));
 
 #ifndef FUZZER_NO_LINK_MAIN
 EXT_FUNC_IMPL(main, int, (int argc, char **argv), false) {
